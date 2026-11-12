@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DNS Hub: Ücretsiz DNS Değiştirici ve Hız Testi (Windows)</title>
+<meta name="description" content="En hızlı ücretsiz DNS'i kendi hattında test et, tek tıkla uygula. Reklamsız, açık kaynak, Türkçe arayüzlü Windows DNS değiştirici.">
+<link rel="canonical" href="https://bunyaminkaya.github.io/dns-hub/">
+<meta property="og:title" content="DNS Hub: Ücretsiz DNS Değiştirici ve Hız Testi">
+<meta property="og:description" content="En hızlı ücretsiz DNS'i kendi hattında test et, tek tıkla uygula.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://bunyaminkaya.github.io/dns-hub/img/light-test.png">
+<link rel="icon" href="icon.ico">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--bd:#e3e5e8;--tx:#16181d;--mu:#5b6270;--ac:#0f6cbd;--acx:#fff;--acs:#e3effb;--ok:#0f7b0f}
+@media (prefers-color-scheme:dark){:root{--bg:#17191d;--card:#212429;--bd:#343841;--tx:#f3f4f6;--mu:#a6adb9;--ac:#60cdff;--acx:#00263d;--acs:#1c3a4f;--ok:#6ccb5f}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 "Segoe UI Variable Text","Segoe UI",Inter,system-ui,sans-serif}
+a{color:var(--ac)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px;color:var(--tx);text-decoration:none}
+.logo{width:30px;height:30px;border-radius:8px;background:#0f6cbd;display:grid;place-items:center}
+.logo svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round}
+nav a{color:var(--mu);text-decoration:none;margin-left:20px;font-size:15px}
+nav a:hover{color:var(--tx)}
+.hero{text-align:center;padding:48px 0 28px}
+.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:0 0 16px;font-weight:650;letter-spacing:-.02em}
+.hero p.lead{max-width:640px;margin:0 auto 28px;color:var(--mu);font-size:18px}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 24px;border-radius:8px;font-weight:600;text-decoration:none;border:1px solid var(--bd);background:var(--card);color:var(--tx)}
+.btn.pri{background:var(--ac);color:var(--acx);border-color:var(--ac)}
+.btn:hover{filter:brightness(.96)}
+.meta{margin-top:14px;font-size:14px;color:var(--mu)}
+.shot{margin:36px auto 0;max-width:980px}
+.shot img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--bd);box-shadow:0 18px 50px rgba(0,0,0,.14)}
+.shot figcaption{text-align:center;color:var(--mu);font-size:13px;margin-top:10px}
+section{padding:56px 0}
+h2{font-size:28px;margin:0 0 8px;letter-spacing:-.01em}
+.sub{color:var(--mu);margin:0 0 28px;max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--mu);font-size:15px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px 18px 16px 62px;position:relative}
+.steps li:before{content:counter(s);position:absolute;left:18px;top:14px;width:30px;height:30px;border-radius:50%;background:var(--acs);color:var(--ac);font-weight:700;display:grid;place-items:center}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.gal img{width:100%;height:auto;border-radius:10px;border:1px solid var(--bd);display:block}
+details{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{margin:10px 0 0;color:var(--mu)}
+ul.lim{padding-left:20px;color:var(--mu)}
+ul.lim li{margin-bottom:8px}
+ul.lim b{color:var(--tx)}
+footer{border-top:1px solid var(--bd);padding:28px 0 40px;color:var(--mu);font-size:14px;text-align:center}
+footer p{margin:6px 0}
+@media (max-width:560px){nav a:not(.keep){display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#"><span class="logo"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5"/><path d="M5.5 12h13M12 5.5c2.2 2.2 2.2 10.8 0 13M12 5.5c-2.2 2.2-2.2 10.8 0 13"/></svg></span>DNS Hub</a>
+    <nav><a href="#ozellikler">Özellikler</a><a href="#nasil">Kullanım</a><a href="#sss">SSS</a><a class="keep" href="https://github.com/bunyaminkaya/dns-hub">GitHub</a></nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Sana en hızlı DNS'i bul,<br>tek tıkla uygula</h1>
+      <p class="lead">DNS Hub, ücretsiz DNS sağlayıcılarını senin internet hattında test eder, en hızlısını seçer ve Windows'a uygular. Ücretsiz, reklamsız ve açık kaynak.</p>
+      <div class="btns">
+        <a class="btn pri" href="https://github.com/bunyaminkaya/dns-hub/releases/latest">Windows için indir (.exe)</a>
+        <a class="btn" href="https://github.com/bunyaminkaya/dns-hub">Kaynak kodu</a>
+      </div>
+      <div class="meta">Windows 11 önerilir · MIT lisansı · Türkçe, English, Deutsch</div>
+      <figure class="shot">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="img/dark-test.png">
+          <img src="img/light-test.png" alt="DNS Hub hız testi ekranı: sunucular hıza göre sıralanmış, en hızlısı üstte" width="1120" height="720">
+        </picture>
+        <figcaption>Hız testi ekranı. Görüntüdeki süreler örnek verilerdir; kendi hattında sonuçlar farklı çıkar.</figcaption>
+      </figure>
+    </div>
+
+    <section id="ozellikler">
+      <h2>Neler yapar?</h2>
+      <p class="sub">Karmaşık ağ ayarlarına girmeden, hattına en uygun DNS'i bulmanı sağlar.</p>
+      <div class="grid">
+        <div class="card"><h3>Kendi hattında hız testi</h3><p>Düz DNS, DoH ve DoT ayrı ayrı ölçülür. Gecikme, dalgalanma ve başarı oranı bir puanda birleşir. Sonuçlar geldikçe liste hıza göre canlı sıralanır.</p></div>
+        <div class="card"><h3>Tek tıkla uygulama</h3><p>"En hızlıyı bul ve uygula" testi yapar, kazananı ağ bağdaştırıcına yazar. Önce şifreli DNS (DoH), olmazsa düz DNS denenir.</p></div>
+        <div class="card"><h3>Güvenlik sayacı</h3><p>DNS değişince internet gelmezse 15 saniye içinde eski ayara dönülür. Eski ayar her seferinde önceden yedeklenir.</p></div>
+        <div class="card"><h3>Kendi DNS'ini ekle</h3><p>IPv4, IPv6, DoH adresi ve DoT adı girebilirsin. Kaydetmeden önce 53, 443 ve 853 portları denenir. Liste içe ve dışa aktarılabilir.</p></div>
+        <div class="card"><h3>13 ücretsiz sağlayıcı</h3><p>Cloudflare, Google, Quad9, AdGuard, CleanBrowsing, Control D, Mullvad ve OpenDNS, filtreli ve filtresiz sürümleriyle listede.</p></div>
+        <div class="card"><h3>Sade ve kişisel</h3><p>Açık ve koyu tema, üç dil, sistem tepsisi ve Windows ile başlatma. Hesap, reklam ve veri toplama yok.</p></div>
+      </div>
+    </section>
+
+    <section id="gorunum">
+      <h2>Görünüm</h2>
+      <p class="sub">Windows 11 ile uyumlu, sade bir arayüz. Açık ve koyu temayı destekler.</p>
+      <div class="two gal">
+        <picture><source media="(prefers-color-scheme: dark)" srcset="img/dark-home.png"><img loading="lazy" src="img/light-home.png" alt="DNS Hub ana sayfa"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="img/dark-list.png"><img loading="lazy" src="img/light-list.png" alt="DNS Hub DNS listesi"></picture>
+      </div>
+    </section>
+
+    <section id="nasil">
+      <h2>Nasıl kullanılır?</h2>
+      <p class="sub">Kurulum gerektirmez, tek dosya çalışır.</p>
+      <ol class="steps">
+        <li><b>İndir.</b> <a href="https://github.com/bunyaminkaya/dns-hub/releases/latest">Sürümler sayfasından</a> <code>DNSHub.exe</code> dosyasını al.</li>
+        <li><b>Yönetici olarak çalıştır.</b> Windows, DNS ayarını yalnızca yönetici yetkisiyle değiştirmeye izin verir.</li>
+        <li><b>Testi başlat.</b> Ağ bağdaştırıcını seç, "En hızlıyı bul ve uygula" düğmesine bas. Test yaklaşık 20 saniye sürer.</li>
+        <li><b>Sonucu kontrol et.</b> İnternet çalışıyorsa onayla. Çalışmıyorsa program eski ayara kendiliğinden döner.</li>
+      </ol>
+    </section>
+
+    <section id="sinirlar">
+      <h2>Bilmen gerekenler</h2>
+      <ul class="lim">
+        <li><b>Windows 11:</b> Şifreli DNS (DoH) ayarını yazan komut yalnızca Windows 11'de vardır. Windows 10'da DNS düz olarak uygulanır.</li>
+        <li><b>Her engeli aşmaz:</b> DNS değiştirmek yalnızca alan adı tabanlı engellerde işe yarar, IP veya URL tabanlı engellerde yaramaz.</li>
+        <li><b>SmartScreen uyarısı:</b> Program dijital olarak imzalı değildir, ilk çalıştırmada Windows uyarı gösterebilir. Kaynak kodu açıktır; .exe, GitHub Actions ile bu depodaki koddan derlenir ve her sürümle birlikte SHA256 özeti yayınlanır.</li>
+        <li><b>Markalar:</b> Adı geçen DNS sağlayıcıları sahiplerinin ticari markasıdır, DNS Hub bunlarla bağlantılı değildir. Program garanti verilmeden, olduğu gibi sunulur.</li>
+      </ul>
+    </section>
+
+    <section id="sss">
+      <h2>Sık sorulan sorular</h2>
+      <details><summary>Gerçekten ücretsiz mi?</summary><p>Evet. Reklam, abonelik ya da gizli ücret yok. MIT lisansıyla yayınlanır; kullanabilir, inceleyebilir, değiştirebilir ve paylaşabilirsin.</p></details>
+      <details><summary>Verilerimi topluyor mu?</summary><p>Hayır. Hesap yok, kullanım verisi toplanmaz. Ayarların bilgisayarında saklanır. Testler yalnızca senin seçtiğin DNS sunucularına sorgu gönderir.</p></details>
+      <details><summary>İnternetim kesilirse ne olur?</summary><p>Güvenlik sayacı açıkken, DNS değişikliğinden sonra internet gelmezse program 15 saniye içinde eski ayarı geri yükler. İstersen "Eski DNS'e dön" ile elle de geri alabilirsin.</p></details>
+      <details><summary>Hangi DNS en hızlısı?</summary><p>Herkes için tek cevap yok; şehre, internet sağlayıcına ve saate göre değişir. Bu yüzden program testi senin hattında çalıştırır.</p></details>
+      <details><summary>Yeni özellikler gelecek mi?</summary><p>Planlananlar: sağlayıcı DNS'i ile şifreli DNS cevaplarını karşılaştıran engel tespiti ve sızıntı testi, ayrıca yerel şifreli DNS vekili. Bunlar henüz hazır değil.</p></details>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="y">2026</span> <a href="https://bunyaminkaya.com">Bünyamin KAYA</a> · MIT lisansı</p>
+    <p><a href="https://github.com/bunyaminkaya/dns-hub/issues">Sorun bildir</a> · <a href="https://github.com/bunyaminkaya/dns-hub">GitHub</a></p>
+  </footer>
+</div>
+</body>
+</html>
